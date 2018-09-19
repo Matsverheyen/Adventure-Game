@@ -38,7 +38,7 @@ function noorden() {
 }
 
 function oosten() {
-  console.log('Level 2 - Je ging naat het oosten.');
+  console.log('Level 2 - Je ging naar het oosten.');
   window.alert('Je ziet een klein houten hutje in de verte.');
   naarHutje = window.prompt('Wil je hierheen', 'Ja, Nee');
   if (naarHutje == 'ja' || naarHutje == 'Ja') {
