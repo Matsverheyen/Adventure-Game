@@ -192,6 +192,7 @@ function riverOmweg() {
       }
     } else if (betalen == 'nee' || betalen == 'Nee') {
       window.alert('De bewakers doden je.');
+      window.alert('Game over!');
     }
   } else if (wegBrug == 'Erlangs' || wegBrug == 'erlangs') {
     window.alert('Je probeert langs de brug te gaan!');
@@ -518,3 +519,6 @@ function eindbaas() {
     window.alert('Oeps, Dit is geen geldige keuze!');
   }
 }
+
+//TODO Case fixen in bossfight
+//itsleaning inleveren
