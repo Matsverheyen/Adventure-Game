@@ -79,9 +79,12 @@ function westen() {
         riverOmweg();
       }
     } else if (fight == 'nee' || fight == 'Nee') {
-      if (stealth >= 1) {
+      if (sneak >= 1) {
         window.alert('Je kunt rustig verder lopen!');
         riverOmweg();
+      } else {
+        window.alert('Het monster ziet je!');
+        window.alert('Game over!');
       }
     } else {
       window.alert('Oeps, Dit is geen geldige keuze!');
@@ -181,7 +184,7 @@ function riverOmweg() {
       if (munten >= 10) {
         munten -= 10;
         window.alert('Je hebt betaalt!');
-        window.alert(munten);
+        window.alert('Munten: ' + munten);
         verder();
       } else {
         window.alert('Je hebt niet genoeg munten');
@@ -350,22 +353,15 @@ function verder() {
 function enter() {
   console.log('Level 5 - Kasteel');
   window.alert('Je gaat het kasteel in.');
-  doen = window.prompt('Wat wil je heen', 'Well, Blacksmith, King,');
-  switch (doen) {
-    case Well || well:
-      well();
-      break;
-    case Blacksmith || blacksmith:
-      bs();
-      break;
-    case King || king:
-      king();
-      break;
-    case Church || church:
-      kerk();
-      break;
-    default:
-      console.log('Error');
+  var doen = window.prompt('Wat wil je heen', 'Well, Blacksmith, King,');
+  if (doen == 'well' || doen == 'Well') {
+    Well();
+  } else if (doen == 'BlackSmith' || doen == 'blacksmith') {
+    bs();
+  } else if (doen == 'king' || doen == 'King') {
+    king();
+  } else {
+    window.alert('Oeps, Dit is geen geldige keuze!');
   }
 }
 
@@ -411,36 +407,32 @@ function Well() {
   window.alert('Je komt aan bij de put.');
   wellAction = window.prompt('Wat wil je doen?', 'Springen, Wensen');
   if (wellAction == 'Springen' || wellAction == 'springen') {
-    window.alert('Je, Sprint de put in en verdrinkt in de put');
+    window.alert('Je springt de put in en verdrinkt');
     window.alert('Game over!');
   } else if (wellAction == 'wensen' || wellAction == 'Wensen') {
     if (munten >= 10) {
       munten -= 10;
       window.alert('Je gooi 10 munten in de put.');
-      wens = window.prompt('Waar wens je voor?', 'Sterkte, Stealth, Magie');
-      switch (wens) {
-        case Sterkte || sterkte:
-          window.alert('je voelt je sterker. + 3 Strenght');
-          strenght += 3;
-          window.alert('Strenght: ' + strenght);
-          enter3();
-          break;
-        case Stealth || stealth:
-          window.alert('je voelt je stealthier. + 3 Stealth');
-          stealth += 3;
-          window.alert('Stealth: ' + stealth);
-          enter3();
-          break;
-        case Magie || magie:
-          window.alert('je voelt niks.');
-          enter3();
-          break;
-        default:
-          console.log('Error');
+      var wens = window.prompt('Waar wens je voor?', 'Sterkte, Stealth, Magie');
+      if (wens == 'Sterkte' || wens == 'sterkte') {
+        window.alert('je voelt je sterker. + 3 Strenght');
+        strenght += 3;
+        window.alert('Strenght: ' + strenght);
+        enter2();
+      } else if (wens == 'Stealth' || wens == 'stealth') {
+        window.alert('je voelt je stealthier. + 3 Stealth');
+        sneak += 3;
+        window.alert('Stealth: ' + sneak);
+        enter2();
+      } else if (wens == 'Magie' || wens == 'magie') {
+        window.alert('je voelt niks.');
+        enter2();
+      } else {
+        window.alert('Oeps, Dit is geen geldige keuze!');
       }
     } else {
       window.alert('Je hebt niet genoeg munten dus je kunt geen wens doen.');
-      enter3();
+      enter2();
     }
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
@@ -451,15 +443,12 @@ function enter2() {
   console.log('Level 5 - Kasteel');
   window.alert('Je gaat terug het plein op.');
   doen = window.prompt('Wat wil je heen', 'Well, King');
-  switch (doen) {
-    case Well || well:
-      well();
-      break;
-    case King || king:
-      king();
-      break;
-    default:
-      console.log('Error');
+  if (doen == 'Well' || doen == 'well') {
+    Well();
+  } else if (doen == 'king' || doen == 'King') {
+    king();
+  } else {
+    window.alert('Oeps, Dit is geen geldige keuze!');
   }
 }
 
@@ -472,11 +461,11 @@ function eindbaas() {
     attack = window.prompt('Wat voor aanval wil je doen?', 'Stealth, Heavy');
     switch (attack) {
       case Stealth || stealth:
-        if (stealth >= 5) {
+        if (sneak >= 5) {
           window.alert('Je sneakt achter de draak langs, Hij ziet je niet.');
           attack2 = window.prompt('Wat is je volgende actie?', 'Vluchten, Steken');
           if (attack2 == 'Vluchten' || attack2 == 'vluchten') {
-            if (stealth > 6 && armor > 3) {
+            if (sneak > 6 && armor > 3) {
               window.alert('Je ontkomt met success, verder sterf iedereen in het kasteel.');
               window.alert('You won, but you\'re the only one left.');
             } else {
