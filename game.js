@@ -461,7 +461,8 @@ function eindbaas() {
   if (endAction == 'Vechten' || endAction == 'vechten') {
     attack = window.prompt('Wat voor aanval wil je doen?', 'Stealth, Heavy');
     switch (attack) {
-      case Stealth || stealth:
+      case 'Stealth':
+      case 'stealth':
         if (sneak >= 5) {
           window.alert('Je sneakt achter de draak langs, Hij ziet je niet.');
           attack2 = window.prompt('Wat is je volgende actie?', 'Vluchten, Steken');
@@ -489,7 +490,8 @@ function eindbaas() {
         }
 
         break;
-      case Heavy || heavy:
+      case 'Heavy':
+      case 'heavy':
         window.alert('Je slaat toe met een heavy attack');
         if (strenght >= 14) {
           window.alert('Critical hit, De draak is dood!');
