@@ -1,9 +1,12 @@
 //Startup stats
+//Mats Verheyen
+//Mbo leerjaar 1
+//Game opdracht
+
 var armor = 0;
 var munten = 0;
 var sneak = 0;
 var strenght = 0;
-var bosshealth = 350;
 var item;
 var item2;
 var item3;
@@ -473,12 +476,12 @@ function eindbaas() {
   if (endAction == 'Vechten' || endAction == 'vechten') {
     attack = window.prompt('Wat voor aanval wil je doen?', 'Stealth, Heavy');
     switch (attack) {
-      case Stealth:
+      case 'Stealth':
         if (sneak >= 5) {
           window.alert('Je sneakt achter de draak langs, Hij ziet je niet.');
           attack2 = window.prompt('Wat is je volgende actie?', 'Vluchten, Steken');
           if (attack2 == 'Vluchten' || attack2 == 'vluchten') {
-            if (sneak > 6 && armor > 3) {
+            if (sneak > 10 && armor > 3) {
               window.alert('Je ontkomt met success, verder sterf iedereen in het kasteel.');
               window.alert('You won, but you\'re the only one left.');
             } else {
@@ -486,7 +489,7 @@ function eindbaas() {
               window.alert('Game over!');
             }
           } else if (attack2 == 'Steken' || attack2 == 'steken') {
-            if (strenght >= 15) {
+            if (strenght >= 20) {
               window.alert('Je slaat toe maar de draak is nog niet dood!');
               window.alert('De draak slaat toe terug en slaat je dood!');
               window.alert('Game over!');
@@ -501,12 +504,12 @@ function eindbaas() {
         }
 
         break;
-      case stealth:
+      case 'stealth':
         if (sneak >= 5) {
           window.alert('Je sneakt achter de draak langs, Hij ziet je niet.');
           attack2 = window.prompt('Wat is je volgende actie?', 'Vluchten, Steken');
           if (attack2 == 'Vluchten' || attack2 == 'vluchten') {
-            if (sneak > 6 && armor > 3) {
+            if (sneak > 10 && armor > 3) {
               window.alert('Je ontkomt met success, verder sterf iedereen in het kasteel.');
               window.alert('You won, but you\'re the only one left.');
             } else {
@@ -514,7 +517,7 @@ function eindbaas() {
               window.alert('Game over!');
             }
           } else if (attack2 == 'Steken' || attack2 == 'steken') {
-            if (strenght >= 15) {
+            if (strenght >= 20) {
               window.alert('Je slaat toe maar de draak is nog niet dood!');
               window.alert('De draak slaat toe terug en slaat je dood!');
               window.alert('Game over!');
@@ -529,9 +532,9 @@ function eindbaas() {
         }
 
         break;
-      case heavy:
+      case 'heavy':
         window.alert('Je slaat toe met een heavy attack');
-        if (strenght >= 14) {
+        if (strenght >= 25) {
           window.alert('Critical hit, De draak is dood!');
           window.alert('Je hebt gewonnen!');
         } else {
@@ -548,9 +551,9 @@ function eindbaas() {
 
         break;
 
-      case Heavy:
+      case 'Heavy':
         window.alert('Je slaat toe met een heavy attack');
-        if (strenght >= 14) {
+        if (strenght >= 25) {
           window.alert('Critical hit, De draak is dood!');
           window.alert('Je hebt gewonnen!');
         } else {
