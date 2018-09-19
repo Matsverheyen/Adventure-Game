@@ -26,6 +26,7 @@ function lvl1() {
     rust();
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    lvl1();
   }
 }
 
@@ -46,6 +47,7 @@ function oosten() {
     bos();
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    noorden();
   }
 }
 
@@ -59,6 +61,7 @@ function zuiden() {
     noHelp();
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    zuiden();
   }
 }
 
@@ -91,6 +94,7 @@ function westen() {
     }
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    westen();
   }
 }
 
@@ -115,6 +119,7 @@ function lvl1alt() {
     westen();
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    lvl1alt();
   }
 }
 
@@ -129,6 +134,7 @@ function hutje() {
     kist();
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    hutje();
   }
 }
 
@@ -140,6 +146,7 @@ function bos() {
     woud();
   } else {
     window.alert('Je ging dood. Game over!');
+    bos();
   }
 }
 
@@ -163,6 +170,7 @@ function noHelp() {
     bos();
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    noHelp();
   }
 }
 
@@ -204,6 +212,7 @@ function riverOmweg() {
     }
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    riverOmweg();
   }
 }
 
@@ -363,6 +372,7 @@ function enter() {
     king();
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    enter();
   }
 }
 
@@ -391,6 +401,7 @@ function king() {
     eindbaas();
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    king();
   }
 }
 
@@ -437,6 +448,7 @@ function Well() {
     }
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    Well();
   }
 }
 
@@ -461,8 +473,7 @@ function eindbaas() {
   if (endAction == 'Vechten' || endAction == 'vechten') {
     attack = window.prompt('Wat voor aanval wil je doen?', 'Stealth, Heavy');
     switch (attack) {
-      case 'Stealth':
-      case 'stealth':
+      case ('Stealth' || 'stealth'):
         if (sneak >= 5) {
           window.alert('Je sneakt achter de draak langs, Hij ziet je niet.');
           attack2 = window.prompt('Wat is je volgende actie?', 'Vluchten, Steken');
@@ -490,8 +501,7 @@ function eindbaas() {
         }
 
         break;
-      case 'Heavy':
-      case 'heavy':
+      case ('Heavy' || 'heavy'):
         window.alert('Je slaat toe met een heavy attack');
         if (strenght >= 14) {
           window.alert('Critical hit, De draak is dood!');
@@ -519,8 +529,6 @@ function eindbaas() {
     window.alert('Game Over');
   } else {
     window.alert('Oeps, Dit is geen geldige keuze!');
+    eindbaas();
   }
 }
-
-//TODO Case fixen in bossfight
-//itsleaning inleveren
