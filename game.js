@@ -327,7 +327,7 @@ function verder() {
       strenght += 2;
       sneak += 5;
       munten += 5;
-      window.alert('Strenght: ' + strenght + ' Armor: ' + armor + ' Munten: ' + munten);
+      window.alert('Strenght: ' + strenght + ' Sneak: ' + sneak + ' Munten: ' + munten);
       break;
     case 3:
       item = 'Steel hammer';
@@ -473,7 +473,7 @@ function eindbaas() {
   if (endAction == 'Vechten' || endAction == 'vechten') {
     attack = window.prompt('Wat voor aanval wil je doen?', 'Stealth, Heavy');
     switch (attack) {
-      case ('Stealth' || 'stealth'):
+      case Stealth:
         if (sneak >= 5) {
           window.alert('Je sneakt achter de draak langs, Hij ziet je niet.');
           attack2 = window.prompt('Wat is je volgende actie?', 'Vluchten, Steken');
@@ -501,7 +501,54 @@ function eindbaas() {
         }
 
         break;
-      case ('Heavy' || 'heavy'):
+      case stealth:
+        if (sneak >= 5) {
+          window.alert('Je sneakt achter de draak langs, Hij ziet je niet.');
+          attack2 = window.prompt('Wat is je volgende actie?', 'Vluchten, Steken');
+          if (attack2 == 'Vluchten' || attack2 == 'vluchten') {
+            if (sneak > 6 && armor > 3) {
+              window.alert('Je ontkomt met success, verder sterf iedereen in het kasteel.');
+              window.alert('You won, but you\'re the only one left.');
+            } else {
+              window.alert('De draak ziet je en eet je op!');
+              window.alert('Game over!');
+            }
+          } else if (attack2 == 'Steken' || attack2 == 'steken') {
+            if (strenght >= 15) {
+              window.alert('Je slaat toe maar de draak is nog niet dood!');
+              window.alert('De draak slaat toe terug en slaat je dood!');
+              window.alert('Game over!');
+            }
+          } else {
+            window.alert('Oeps, Dit is geen geldige keuze!');
+          }
+        } else {
+          window.alert('Je sneakt achter de draak langs, maar hij ziet je');
+          window.alert('Je probeert weg te rennen maar de draak eet je op!');
+          window.alert('Game over!');
+        }
+
+        break;
+      case heavy:
+        window.alert('Je slaat toe met een heavy attack');
+        if (strenght >= 14) {
+          window.alert('Critical hit, De draak is dood!');
+          window.alert('Je hebt gewonnen!');
+        } else {
+          window.alert('Je doet schade maar niet genoeg!');
+          window.alert('De draak slaat toe maar je ontwijkt het!');
+          if (strenght >= 11) {
+            window.alert('Je slaat weer toe en de draak is dood!');
+            window.alert('Je hebt gewonnen!');
+          } else {
+            window.alert('De draak slaat toe en eet je op!');
+            window.alert('Game over!');
+          }
+        }
+
+        break;
+
+      case Heavy:
         window.alert('Je slaat toe met een heavy attack');
         if (strenght >= 14) {
           window.alert('Critical hit, De draak is dood!');
